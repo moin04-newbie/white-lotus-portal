@@ -1,4 +1,4 @@
-
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 interface Article {
@@ -59,7 +59,6 @@ const mockArticles: Article[] = [
     published: "2024-03-10",
     category: "Orthopedics",
   },
-  // Add more as needed
 ];
 
 const categories = [...new Set(mockArticles.map(a => a.category)), "All"];
@@ -67,8 +66,8 @@ const categories = [...new Set(mockArticles.map(a => a.category)), "All"];
 const LatestBlogPostsEnhanced = ({
   showSearch = true,
 }: { showSearch?: boolean }) => {
-  const [search, setSearch] = React.useState("");
-  const [category, setCategory] = React.useState("All");
+  const [search, setSearch] = useState("");
+  const [category, setCategory] = useState("All");
 
   const filtered = mockArticles.filter((a) =>
     (category === "All" || a.category === category) &&
