@@ -1,6 +1,7 @@
-
 import { Link } from 'react-router-dom';
 import { Calendar, User } from 'lucide-react';
+import ContactMap from '../contact/ContactMap';
+import EmergencyHelpline from '../emergency/EmergencyHelpline';
 
 // Mock data for blog posts
 const blogPosts = [
@@ -95,7 +96,7 @@ const LatestBlogPosts = () => {
           ))}
         </div>
         
-        <div className="text-center mt-12">
+        <div className="text-center mt-12 mb-16">
           <Link 
             to="/blog" 
             className="border border-hospital-600 text-hospital-600 hover:bg-hospital-50 font-medium py-3 px-6 rounded-md transition-colors duration-300 inline-flex items-center"
@@ -105,6 +106,15 @@ const LatestBlogPosts = () => {
               <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
             </svg>
           </Link>
+        </div>
+
+        <div className="mb-16">
+          <EmergencyHelpline />
+        </div>
+
+        <div className="mb-16">
+          <h2 className="text-3xl font-bold text-hospital-800 mb-8 text-center">Contact & Location</h2>
+          <ContactMap />
         </div>
       </div>
     </section>
