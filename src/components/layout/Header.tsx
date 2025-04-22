@@ -1,18 +1,30 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Menu, X, Phone, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useIsMobile } from '@/hooks/use-mobile';
+
 const Header = () => {
   const isMobile = useIsMobile();
+  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
+  
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+  
   const toggleSubmenu = (menu: string) => {
     setActiveSubmenu(activeSubmenu === menu ? null : menu);
   };
+
+  const handleAboutUsNavigation = () => {
+    console.log('Navigating to About Us');
+    navigate('/about-us');
+    setIsMenuOpen(false);
+    setActiveSubmenu(null);
+  };
+
   return <header className="bg-white shadow-md sticky top-0 z-50">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-4">
@@ -27,14 +39,35 @@ const Header = () => {
                 Home
               </Link>
               <div className="relative group">
-                <button className="text-gray-700 hover:text-hospital-600 font-medium flex items-center" onClick={() => toggleSubmenu('about')}>
+                <button 
+                  className="text-gray-700 hover:text-hospital-600 font-medium flex items-center" 
+                  onClick={() => toggleSubmenu('about')}
+                >
                   About Us
-                  
+                  <ChevronDown className="ml-2 h-4 w-4" />
                 </button>
                 <div className={`absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md py-2 ${activeSubmenu === 'about' ? 'block' : 'hidden'}`}>
-                  
-                  
-                  
+                  <Link 
+                    to="/about-us" 
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                    onClick={() => setActiveSubmenu(null)}
+                  >
+                    Our History
+                  </Link>
+                  <Link 
+                    to="/about-us" 
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                    onClick={() => setActiveSubmenu(null)}
+                  >
+                    Mission & Vision
+                  </Link>
+                  <Link 
+                    to="/about-us" 
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                    onClick={() => setActiveSubmenu(null)}
+                  >
+                    Leadership
+                  </Link>
                 </div>
               </div>
               <Link to="/departments" className="text-gray-700 hover:text-hospital-600 font-medium">
@@ -72,21 +105,36 @@ const Header = () => {
               Home
             </Link>
             <div>
-              <button className="text-gray-700 hover:text-hospital-600 font-medium py-2 w-full text-left flex items-center justify-between" onClick={() => toggleSubmenu('about')}>
+              <button 
+                className="text-gray-700 hover:text-hospital-600 font-medium py-2 w-full text-left flex items-center justify-between" 
+                onClick={() => toggleSubmenu('about')}
+              >
                 About Us
-                <ChevronDown className="h-4 w-4" />
+                <ChevronDown className={`h-4 w-4 transition-transform ${activeSubmenu === 'about' ? 'rotate-180' : ''}`} />
               </button>
               {activeSubmenu === 'about' && <div className="pl-4 border-l-2 border-hospital-100 mt-1 mb-2">
-                  <Link to="/about/history" className="block py-2 text-gray-700 hover:text-hospital-600">
-                    Our History
-                  </Link>
-                  <Link to="/about/mission" className="block py-2 text-gray-700 hover:text-hospital-600">
-                    Mission & Vision
-                  </Link>
-                  <Link to="/about/leadership" className="block py-2 text-gray-700 hover:text-hospital-600">
-                    Leadership
-                  </Link>
-                </div>}
+                <Link 
+                  to="/about-us" 
+                  className="block py-2 text-gray-700 hover:text-hospital-600"
+                  onClick={handleAboutUsNavigation}
+                >
+                  Our History
+                </Link>
+                <Link 
+                  to="/about-us" 
+                  className="block py-2 text-gray-700 hover:text-hospital-600"
+                  onClick={handleAboutUsNavigation}
+                >
+                  Mission & Vision
+                </Link>
+                <Link 
+                  to="/about-us" 
+                  className="block py-2 text-gray-700 hover:text-hospital-600"
+                  onClick={handleAboutUsNavigation}
+                >
+                  Leadership
+                </Link>
+              </div>}
             </div>
             <Link to="/departments" className="text-gray-700 hover:text-hospital-600 font-medium py-2">
               Departments
@@ -107,4 +155,5 @@ const Header = () => {
         </div>}
     </header>;
 };
+
 export default Header;
