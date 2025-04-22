@@ -1,57 +1,6 @@
 
 import { Link } from 'react-router-dom';
-import { Heart, Brain, Stethoscope, Baby, Ambulance, Bone } from 'lucide-react';
-
-const departments = [
-  {
-    id: 'cardiology',
-    name: 'Cardiology',
-    description: 'Specialized care for heart conditions with advanced diagnostic and treatment options.',
-    icon: Heart,
-    color: 'text-red-500',
-    bgColor: 'bg-red-100'
-  },
-  {
-    id: 'neurology',
-    name: 'Neurology',
-    description: 'Expert treatment for disorders of the nervous system, brain and spinal cord.',
-    icon: Brain,
-    color: 'text-purple-500',
-    bgColor: 'bg-purple-100'
-  },
-  {
-    id: 'internal-medicine',
-    name: 'Internal Medicine',
-    description: 'Comprehensive care for adults focusing on prevention, diagnosis and treatment.',
-    icon: Stethoscope,
-    color: 'text-blue-500',
-    bgColor: 'bg-blue-100'
-  },
-  {
-    id: 'pediatrics',
-    name: 'Pediatrics',
-    description: 'Specialized healthcare for infants, children and adolescents.',
-    icon: Baby,
-    color: 'text-green-500',
-    bgColor: 'bg-green-100'
-  },
-  {
-    id: 'emergency',
-    name: 'Emergency',
-    description: '24/7 emergency care for life-threatening conditions with rapid response teams.',
-    icon: Ambulance,
-    color: 'text-yellow-500',
-    bgColor: 'bg-yellow-100'
-  },
-  {
-    id: 'orthopedics',
-    name: 'Orthopedics',
-    description: 'Specialized care for bones, joints, ligaments, tendons, and muscles.',
-    icon: Bone,
-    color: 'text-orange-500',
-    bgColor: 'bg-orange-100'
-  }
-];
+import { departments } from '@/data/departments';
 
 const DepartmentShowcase = () => {
   return (
