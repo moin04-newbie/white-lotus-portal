@@ -80,7 +80,7 @@ const FeaturedDoctors = () => {
                     variant="outline" 
                     className="flex-1 border-hospital-600 text-hospital-600 hover:bg-hospital-50"
                   >
-                    <Link to={`/appointments?doctor=${doctor.id}`}>Book Appointment</Link>
+                    <Link to={`/appointment-booking?doctor=${doctor.id}`}>Book Appointment</Link>
                   </Button>
                 </div>
               </div>

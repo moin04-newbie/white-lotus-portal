@@ -1,4 +1,3 @@
-
 import { Link, useNavigate } from 'react-router-dom';
 import { Search, MapPin } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
@@ -6,7 +5,6 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Select } from '@/components/ui/select';
 
-// Mock data for doctors (expanded from FeaturedDoctors)
 const doctors = [
   {
     id: 1,
@@ -114,7 +112,6 @@ const doctors = [
   }
 ];
 
-// List of specialties for filter
 const specialties = [
   { value: 'all', label: 'All Specialties' },
   { value: 'Cardiology', label: 'Cardiology' },
@@ -142,7 +139,6 @@ const Doctors = () => {
             </p>
           </div>
 
-          {/* Search and Filters */}
           <div className="bg-white rounded-lg shadow-md p-6 mb-12">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
@@ -193,7 +189,6 @@ const Doctors = () => {
             </div>
           </div>
 
-          {/* Doctors Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {doctors.map((doctor) => (
               <div 
@@ -230,7 +225,7 @@ const Doctors = () => {
                       View Profile
                     </Button>
                     <Button 
-                      onClick={() => navigate(`/appointments?doctor=${doctor.id}`)}
+                      onClick={() => navigate(`/appointment-booking?doctor=${doctor.id}`)}
                       variant="outline" 
                       className="flex-1 border-hospital-600 text-hospital-600 hover:bg-hospital-50"
                     >

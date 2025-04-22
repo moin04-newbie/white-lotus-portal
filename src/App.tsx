@@ -13,6 +13,12 @@ import BlogDetail from "./pages/BlogDetail";
 import Doctors from "./pages/Doctors";
 import DoctorDetail from "./pages/DoctorDetail";
 import Contact from "./pages/Contact";
+import AboutUs from "./pages/AboutUs";
+import AppointmentBooking from "./pages/AppointmentBooking";
+import Gallery from "./pages/Gallery";
+import Emergency from "./pages/Emergency";
+import AdminDashboard from "./pages/AdminDashboard";
+import Testimonials from "./pages/Testimonials";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +30,12 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/appointment-booking" element={<AppointmentBooking />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/emergency" element={<Emergency />} />
+          <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/testimonials" element={<Testimonials />} />
           <Route path="/departments" element={<Departments />} />
           <Route path="/departments/:id" element={<DepartmentDetail />} />
           <Route path="/blog" element={<Blog />} />
