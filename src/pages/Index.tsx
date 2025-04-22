@@ -6,7 +6,7 @@ import FeaturedDoctors from '@/components/home/FeaturedDoctors';
 import TestimonialsCarousel from '@/components/home/TestimonialsCarousel';
 import StatsSection from '@/components/home/StatsSection';
 import CallToAction from '@/components/home/CallToAction';
-import LatestBlogPosts from '@/components/home/LatestBlogPosts';
+// Removed LatestBlogPosts import
 
 const Index = () => {
   return (
@@ -17,7 +17,7 @@ const Index = () => {
       <FeaturedDoctors />
       <CallToAction />
       <TestimonialsCarousel />
-      <LatestBlogPosts />
+      {/* Removed LatestBlogPosts component */}
     </Layout>
   );
 };
