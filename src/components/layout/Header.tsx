@@ -29,7 +29,7 @@ const Header = () => {
               <div className="relative group">
                 <button className="text-gray-700 hover:text-hospital-600 font-medium flex items-center" onClick={() => toggleSubmenu('about')}>
                   About Us
-                  <ChevronDown className="ml-1 h-4 w-4" />
+                  
                 </button>
                 <div className={`absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md py-2 ${activeSubmenu === 'about' ? 'block' : 'hidden'}`}>
                   
