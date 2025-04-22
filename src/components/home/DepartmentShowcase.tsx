@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router-dom';
-import { Heart, Brain, Stethoscope, Baby, FirstAid, Bone } from 'lucide-react';
+import { Heart, Brain, Stethoscope, Baby, Ambulance, Bone } from 'lucide-react';
 
 const departments = [
   {
@@ -39,7 +39,7 @@ const departments = [
     id: 'emergency',
     name: 'Emergency',
     description: '24/7 emergency care for life-threatening conditions with rapid response teams.',
-    icon: FirstAid,
+    icon: Ambulance,
     color: 'text-yellow-500',
     bgColor: 'bg-yellow-100'
   },
