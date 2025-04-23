@@ -19,8 +19,6 @@ import Emergency from "./pages/Emergency";
 import AdminDashboard from "./pages/AdminDashboard";
 import Testimonials from "./pages/Testimonials";
 
-import './i18n/config';
-
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -44,7 +42,6 @@ const App = () => (
           <Route path="/doctors" element={<Doctors />} />
           <Route path="/doctors/:id" element={<DoctorDetail />} />
           <Route path="/contact-us" element={<Contact />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
