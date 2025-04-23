@@ -1,37 +1,36 @@
+
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+
+const slides = [
+  {
+    image: 'https://images.unsplash.com/photo-1504813184591-01572f98c85f?auto=format&fit=crop&q=80',
+    title: 'Excellence in Healthcare',
+    description: 'Providing compassionate care with cutting-edge technology',
+    cta: 'Our Services',
+    link: '/departments'
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80',
+    title: 'Expert Medical Professionals',
+    description: 'Our team of specialists is dedicated to your well-being',
+    cta: 'Meet Our Doctors',
+    link: '/doctors'
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80',
+    title: 'Modern Facilities',
+    description: 'State-of-the-art equipment for the best patient care',
+    cta: 'Explore Our Hospital',
+    link: '/about-us'
+  }
+];
 
 const HeroBanner = () => {
-  const { t } = useTranslation();
   const [currentSlide, setCurrentSlide] = useState(0);
   
-  const slides = [
-    {
-      image: 'https://images.unsplash.com/photo-1504813184591-01572f98c85f?auto=format&fit=crop&q=80',
-      title: t('excellenceTitle'),
-      description: t('excellenceDesc'),
-      cta: t('ourServices'),
-      link: '/departments'
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80',
-      title: t('expertTitle'),
-      description: t('expertDesc'),
-      cta: t('meetDoctors'),
-      link: '/doctors'
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80',
-      title: t('modernTitle'),
-      description: t('modernDesc'),
-      cta: t('exploreHospital'),
-      link: '/about-us'
-    }
-  ];
-
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
   };
@@ -50,6 +49,7 @@ const HeroBanner = () => {
 
   return (
     <div className="relative h-[500px] md:h-[600px] overflow-hidden">
+      {/* Slides */}
       {slides.map((slide, index) => (
         <div 
           key={index}
@@ -82,6 +82,7 @@ const HeroBanner = () => {
         </div>
       ))}
       
+      {/* Navigation Arrows */}
       <button 
         className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white bg-opacity-30 hover:bg-opacity-50 rounded-full p-2 text-white"
         onClick={prevSlide}
@@ -98,6 +99,7 @@ const HeroBanner = () => {
         <ChevronRight size={24} />
       </button>
       
+      {/* Slide Indicators */}
       <div className="absolute bottom-6 left-0 right-0 z-20 flex justify-center space-x-2">
         {slides.map((_, index) => (
           <button
