@@ -45,14 +45,14 @@ const HeroBanner = () => {
           
           <div className="relative z-10 container mx-auto px-4 h-full flex flex-col justify-center">
             <div className="max-w-xl text-white">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4 animate-fade-in text-center">
+              <h1 className="text-4xl md:text-5xl font-bold mb-4 animate-fade-in text-left">
                 {slide.title}
               </h1>
-              <p className="text-xl mb-8 animate-fade-in text-right">
+              <p className="text-xl mb-8 animate-fade-in text-center">
                 {slide.description}
               </p>
-              <Button size="lg" className="bg-hospital-600 hover:bg-hospital-700 text-white animate-fade-in">
-                <Link to={slide.link}>{slide.cta}</Link>
+              <Button size="lg" className="bg-hospital-600 hover:bg-hospital-700 text-white animate-fade-in text-left">
+                <Link to={slide.link} className="my-0 mx-[21px] px-0 py-0">{slide.cta}</Link>
               </Button>
             </div>
           </div>
