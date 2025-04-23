@@ -1,11 +1,14 @@
+
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Menu, X, Phone, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { useTranslation } from 'react-i18next';
 import LanguageSelector from '../LanguageSelector';
 
 const Header = () => {
+  const { t } = useTranslation();
   const isMobile = useIsMobile();
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -36,14 +39,14 @@ const Header = () => {
           {/* Desktop Navigation */}
           {!isMobile && <nav className="hidden md:flex space-x-6">
               <Link to="/" className="text-gray-700 hover:text-hospital-600 font-medium">
-                Home
+                {t('home')}
               </Link>
               <div className="relative group">
                 <button 
                   className="text-gray-700 hover:text-hospital-600 font-medium flex items-center" 
                   onClick={() => toggleSubmenu('about')}
                 >
-                  About Us
+                  {t('aboutUs')}
                   <ChevronDown className="ml-2 h-4 w-4" />
                 </button>
                 <div className={`absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md py-2 ${activeSubmenu === 'about' ? 'block' : 'hidden'}`}>
@@ -52,35 +55,35 @@ const Header = () => {
                     className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                     onClick={() => setActiveSubmenu(null)}
                   >
-                    Our History
+                    {t('ourHistory')}
                   </Link>
                   <Link 
                     to="/about-us" 
                     className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                     onClick={() => setActiveSubmenu(null)}
                   >
-                    Mission & Vision
+                    {t('missionVision')}
                   </Link>
                   <Link 
                     to="/about-us" 
                     className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                     onClick={() => setActiveSubmenu(null)}
                   >
-                    Leadership
+                    {t('leadership')}
                   </Link>
                 </div>
               </div>
               <Link to="/departments" className="text-gray-700 hover:text-hospital-600 font-medium">
-                Departments
+                {t('departments')}
               </Link>
               <Link to="/doctors" className="text-gray-700 hover:text-hospital-600 font-medium">
-                Our Doctors
+                {t('doctors')}
               </Link>
               <Link to="/blog" className="text-gray-700 hover:text-hospital-600 font-medium">
-                Health Blog
+                {t('blog')}
               </Link>
               <Link to="/contact-us" className="text-gray-700 hover:text-hospital-600 font-medium">
-                Contact Us
+                {t('contactUs')}
               </Link>
             </nav>}
 
@@ -88,7 +91,7 @@ const Header = () => {
           <div className="hidden md:flex items-center space-x-4">
             <LanguageSelector />
             <Button className="bg-hospital-600 hover:bg-hospital-700 flex items-center">
-              <Phone className="mr-2 h-4 w-4" /> Call Us
+              <Phone className="mr-2 h-4 w-4" /> {t('callUs')}
             </Button>
           </div>
 
@@ -106,14 +109,14 @@ const Header = () => {
       {isMobile && isMenuOpen && <div className="md:hidden bg-white shadow-inner">
           <nav className="flex flex-col py-4 px-4">
             <Link to="/" className="text-gray-700 hover:text-hospital-600 font-medium py-2">
-              Home
+              {t('home')}
             </Link>
             <div>
               <button 
                 className="text-gray-700 hover:text-hospital-600 font-medium py-2 w-full text-left flex items-center justify-between" 
                 onClick={() => toggleSubmenu('about')}
               >
-                About Us
+                {t('aboutUs')}
                 <ChevronDown className={`h-4 w-4 transition-transform ${activeSubmenu === 'about' ? 'rotate-180' : ''}`} />
               </button>
               {activeSubmenu === 'about' && <div className="pl-4 border-l-2 border-hospital-100 mt-1 mb-2">
@@ -125,7 +128,7 @@ const Header = () => {
                     setActiveSubmenu(null);
                   }}
                 >
-                  Our History
+                  {t('ourHistory')}
                 </Link>
                 <Link 
                   to="/about-us" 
@@ -135,7 +138,7 @@ const Header = () => {
                     setActiveSubmenu(null);
                   }}
                 >
-                  Mission & Vision
+                  {t('missionVision')}
                 </Link>
                 <Link 
                   to="/about-us" 
@@ -145,24 +148,24 @@ const Header = () => {
                     setActiveSubmenu(null);
                   }}
                 >
-                  Leadership
+                  {t('leadership')}
                 </Link>
               </div>}
             </div>
             <Link to="/departments" className="text-gray-700 hover:text-hospital-600 font-medium py-2">
-              Departments
+              {t('departments')}
             </Link>
             <Link to="/doctors" className="text-gray-700 hover:text-hospital-600 font-medium py-2">
-              Our Doctors
+              {t('doctors')}
             </Link>
             <Link to="/blog" className="text-gray-700 hover:text-hospital-600 font-medium py-2">
-              Health Blog
+              {t('blog')}
             </Link>
             <Link to="/contact-us" className="text-gray-700 hover:text-hospital-600 font-medium py-2">
-              Contact Us
+              {t('contactUs')}
             </Link>
             <Button className="bg-hospital-600 hover:bg-hospital-700 mt-4 flex items-center justify-center">
-              <Phone className="mr-2 h-4 w-4" /> Call Us
+              <Phone className="mr-2 h-4 w-4" /> {t('callUs')}
             </Button>
           </nav>
         </div>}

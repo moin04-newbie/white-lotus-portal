@@ -2,30 +2,32 @@ import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const HeroBanner = () => {
+  const { t } = useTranslation();
   const [currentSlide, setCurrentSlide] = useState(0);
   
   const slides = [
     {
       image: 'https://images.unsplash.com/photo-1504813184591-01572f98c85f?auto=format&fit=crop&q=80',
-      title: 'Excellence in Healthcare',
-      description: 'Providing compassionate care with cutting-edge technology',
-      cta: 'Our Services',
+      title: t('excellenceTitle'),
+      description: t('excellenceDesc'),
+      cta: t('ourServices'),
       link: '/departments'
     },
     {
       image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80',
-      title: 'Expert Medical Professionals',
-      description: 'Our team of specialists is dedicated to your well-being',
-      cta: 'Meet Doctors',
+      title: t('expertTitle'),
+      description: t('expertDesc'),
+      cta: t('meetDoctors'),
       link: '/doctors'
     },
     {
       image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80',
-      title: 'Modern Facilities',
-      description: 'State-of-the-art equipment for the best patient care',
-      cta: 'Explore Hospital',
+      title: t('modernTitle'),
+      description: t('modernDesc'),
+      cta: t('exploreHospital'),
       link: '/about-us'
     }
   ];
